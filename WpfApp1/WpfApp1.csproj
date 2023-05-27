@@ -1,0 +1,356 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.22621.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
+    <ApplicationIcon>Resources\appicon.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+    <Authors>policedog757</Authors>
+    <Company>policedog757</Company>
+    <Version>1.0</Version>
+    <Product>Windows Tweaker</Product>
+    <AssemblyVersion>1.0</AssemblyVersion>
+    <FileVersion>1.0</FileVersion>
+    <Description>A program that allows you to optimize, improve your system
+</Description>
+    <PackageIcon>sample.png</PackageIcon>
+    <AssemblyName>WindowsTweaker</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\HomePage\Confidentional.png" />
+    <None Remove="Images\HomePage\Services.png" />
+    <None Remove="Images\HomePage\Turbo.png" />
+    <None Remove="Images\HomePage\Win11Logo.png" />
+    <None Remove="Resources\add.png" />
+    <None Remove="Resources\appicon.ico" />
+    <None Remove="Resources\Applications\camera.png" />
+    <None Remove="Resources\Applications\hints.png" />
+    <None Remove="Resources\Applications\mixedreality.png" />
+    <None Remove="Resources\Applications\Select\3d.png" />
+    <None Remove="Resources\Applications\Select\alarm.png" />
+    <None Remove="Resources\Applications\Select\bebra.png" />
+    <None Remove="Resources\Applications\Select\calc.png" />
+    <None Remove="Resources\Applications\Select\cortana.png" />
+    <None Remove="Resources\Applications\Select\email.png" />
+    <None Remove="Resources\Applications\Select\feedback.png" />
+    <None Remove="Resources\Applications\Select\gamebar.png" />
+    <None Remove="Resources\Applications\Select\grove.png" />
+    <None Remove="Resources\Applications\Select\maps.png" />
+    <None Remove="Resources\Applications\Select\movies.png" />
+    <None Remove="Resources\Applications\Select\Office.png" />
+    <None Remove="Resources\Applications\Select\onedrive.png" />
+    <None Remove="Resources\Applications\Select\onenotes.png" />
+    <None Remove="Resources\Applications\Select\paint.png" />
+    <None Remove="Resources\Applications\Select\people.png" />
+    <None Remove="Resources\Applications\Select\phone.png" />
+    <None Remove="Resources\Applications\Select\photos.png" />
+    <None Remove="Resources\Applications\Select\screen.png" />
+    <None Remove="Resources\Applications\Select\support.png" />
+    <None Remove="Resources\Applications\Select\weather.png" />
+    <None Remove="Resources\Applications\Select\winstore.png" />
+    <None Remove="Resources\Applications\Select\xbox.png" />
+    <None Remove="Resources\Applications\skype.png" />
+    <None Remove="Resources\Applications\solitare.png" />
+    <None Remove="Resources\Applications\stickynotes.png" />
+    <None Remove="Resources\Applications\Unselect\3d.png" />
+    <None Remove="Resources\Applications\Unselect\alarm.png" />
+    <None Remove="Resources\Applications\Unselect\bebra.png" />
+    <None Remove="Resources\Applications\Unselect\calc.png" />
+    <None Remove="Resources\Applications\Unselect\camera.png" />
+    <None Remove="Resources\Applications\Unselect\cortana.png" />
+    <None Remove="Resources\Applications\Unselect\email.png" />
+    <None Remove="Resources\Applications\Unselect\feedback.png" />
+    <None Remove="Resources\Applications\Unselect\gamebar.png" />
+    <None Remove="Resources\Applications\Unselect\grove.png" />
+    <None Remove="Resources\Applications\Unselect\hints.png" />
+    <None Remove="Resources\Applications\Unselect\maps.png" />
+    <None Remove="Resources\Applications\Unselect\mixedreality.png" />
+    <None Remove="Resources\Applications\Unselect\movies.png" />
+    <None Remove="Resources\Applications\Unselect\Office.png" />
+    <None Remove="Resources\Applications\Unselect\onedrive.png" />
+    <None Remove="Resources\Applications\Unselect\onenotes.png" />
+    <None Remove="Resources\Applications\Unselect\paint.png" />
+    <None Remove="Resources\Applications\Unselect\people.png" />
+    <None Remove="Resources\Applications\Unselect\phone.png" />
+    <None Remove="Resources\Applications\Unselect\photos.png" />
+    <None Remove="Resources\Applications\Unselect\screen.png" />
+    <None Remove="Resources\Applications\Unselect\skype.png" />
+    <None Remove="Resources\Applications\Unselect\solitare.png" />
+    <None Remove="Resources\Applications\Unselect\stickynotes.png" />
+    <None Remove="Resources\Applications\Unselect\support.png" />
+    <None Remove="Resources\Applications\Unselect\voicerec.png" />
+    <None Remove="Resources\Applications\Unselect\weather.png" />
+    <None Remove="Resources\Applications\Unselect\winstore.png" />
+    <None Remove="Resources\Applications\Unselect\xbox.png" />
+    <None Remove="Resources\Applications\voicerec.png" />
+    <None Remove="Resources\Applications\xbox.png" />
+    <None Remove="Resources\Confidentional.png" />
+    <None Remove="Resources\maximize.png" />
+    <None Remove="Resources\minimize.png" />
+    <None Remove="Resources\sample.ico" />
+    <None Remove="Resources\sample.png" />
+    <None Remove="Resources\Services.png" />
+    <None Remove="Resources\Turbo.png" />
+    <None Remove="Resources\update.png" />
+    <None Remove="Resources\Win11Logo.png" />
+    <None Remove="Resources\CollapseButton.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Theme\ModernButtonTheme.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\appicon.ico" />
+    <Content Include="Resources\sample.ico" />
+    <Resource Include="Resources\add.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\calc.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\cortana.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\email.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\feedback.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\gamebar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\maps.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\movies.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\Office.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\onedrive.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\paint.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\phone.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\photos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\screen.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\support.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\weather.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\xbox.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\3d.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\bebra.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\calc.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\cortana.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\email.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\feedback.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\gamebar.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\maps.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\movies.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\Office.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\onedrive.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\paint.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\people.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Fonts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+    <PackageReference Include="System.Management" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\HomePage\Confidentional.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\HomePage\Services.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\HomePage\Turbo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\HomePage\Win11Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\alarm.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\bebra.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\camera.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\grove.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\hints.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\mixedreality.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\people.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\skype.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\solitare.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\stickynotes.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\voicerec.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Select\winstore.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\alarm.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\camera.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\grove.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\hints.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\mixedreality.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\onenotes.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\phone.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\photos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\screen.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\skype.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\solitare.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\stickynotes.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\support.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\voicerec.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\weather.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\winstore.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Applications\Unselect\xbox.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Confidentional.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\maximize.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\minimize.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\sample.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Services.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Turbo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\update.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Win11Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+	  <Resource Include="Resources\CloseButton.png">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\Office.png">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Images\Office.png">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+	  <Resource Include="Resources\CollapseButton.png">
+		  <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Applications\Select\3d.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

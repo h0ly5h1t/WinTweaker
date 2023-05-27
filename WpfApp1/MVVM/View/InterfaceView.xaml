@@ -1,0 +1,139 @@
+﻿<UserControl
+    x:Class="WpfApp1.MVVM.View.InterfaceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WpfApp1.MVVM.View_Model"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    d:DesignHeight="773.361"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <UserControl.DataContext>
+        <local:InterfaceViewModel />
+    </UserControl.DataContext>
+    <ScrollViewer>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="Margin" Value="0,5,0,5" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock
+                FontSize="25"
+                Foreground="White"
+                Text="Shortcut menu" />
+
+            <ItemsControl
+                x:Name="ShortcutItemsControl"
+                Background="Transparent"
+                IsTabStop="False"
+                ItemsSource="{Binding ShortcutList, UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <CheckBox
+                                Grid.Column="0"
+                                Margin="10,0,0,0"
+                                IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged}"
+                                IsTabStop="False" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="0,5,0,5"
+                                VerticalAlignment="Center"
+                                FontSize="21"
+                                Foreground="White"
+                                Text="{Binding Title}"
+                                TextWrapping="Wrap" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Width="130"
+                    Height="40"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Command="{Binding AddItemsShortcutCommand}"
+                    Content="Apply"
+                    FontSize="20"
+                    Foreground="White"
+                    IsTabStop="False" />
+            </Grid>
+
+            <TextBlock
+                Margin="0,20,0,5"
+                FontSize="25"
+                Foreground="White"
+                Text="Graphical user interface | GUI" />
+            <ItemsControl
+                x:Name="GUIItemsControl"
+                Background="Transparent"
+                IsTabStop="False"
+                ItemsSource="{Binding GUIList, UpdateSourceTrigger=PropertyChanged}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <CheckBox
+                                Grid.Column="0"
+                                Margin="10,0,0,0"
+                                IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged}"
+                                IsTabStop="False" />
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="0,5,0,5"
+                                VerticalAlignment="Center"
+                                FontSize="21"
+                                Foreground="White"
+                                Text="{Binding Title}"
+                                TextWrapping="Wrap" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Width="130"
+                    Height="40"
+                    Margin="0,10,0,0"
+                    VerticalAlignment="Top"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Command="{Binding AddGUICommand}"
+                    Content="Apply"
+                    FontSize="20"
+                    Foreground="White"
+                    IsTabStop="False" />
+            </Grid>
+
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

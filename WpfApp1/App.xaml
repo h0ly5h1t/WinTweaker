@@ -1,0 +1,48 @@
+﻿<Application
+    x:Class="WpfApp1.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WpfApp1"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    xmlns:view="clr-namespace:WpfApp1.MVVM.View"
+    xmlns:viewModel="clr-namespace:WpfApp1.MVVM.View_Model"
+    StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Theme/ToggleButtonTheme.xaml" />
+                <ResourceDictionary Source="Theme/CheckBoxTheme.xaml" />
+                <ResourceDictionary Source="Theme/BebrikTheme.xaml" />
+                <ui:ThemeResources />
+                <ui:XamlControlsResources />
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:ServicesViewModel}">
+                <view:ServicesView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ConfidentionalViewModel}">
+                <view:ConfidentionalView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:OptimizationViewModel}">
+                <view:OptimizationView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:InterfaceViewModel}">
+                <view:InterfaceView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ApplicationViewModel}">
+                <view:ApplicationView />
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AutorunViewModel}">
+                <view:AutorunView />
+            </DataTemplate>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

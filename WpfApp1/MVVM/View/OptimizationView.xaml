@@ -43,7 +43,8 @@
                 x:Name="OptimizationItemsControl"
                 Background="Transparent"
                 IsTabStop="False"
-                ItemsSource="{Binding OptimizationList, UpdateSourceTrigger=PropertyChanged}">
+                ItemsSource="{Binding OptimizationList, UpdateSourceTrigger=PropertyChanged}"
+                VirtualizingStackPanel.IsVirtualizing="False">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,0,20,0">
@@ -71,7 +72,6 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
-
             <Button
                 Width="130"
                 Height="40"
@@ -83,6 +83,73 @@
                 Content="Apply"
                 FontSize="20"
                 IsTabStop="False" />
+
+            <TextBlock
+                Margin="0,20,0,5"
+                FontSize="25"
+                Foreground="White"
+                Text="System cleaning" />
+            <ItemsControl
+                x:Name="F"
+                Background="Transparent"
+                IsTabStop="False"
+                ItemsSource="{Binding CleanList, UpdateSourceTrigger=PropertyChanged}"
+                VirtualizingStackPanel.IsVirtualizing="False">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,20,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+                            <CheckBox
+                                Grid.Column="0"
+                                Margin="10,0,0,0"
+                                IsChecked="{Binding IsChecked, UpdateSourceTrigger=PropertyChanged}"
+                                IsTabStop="False">
+                                <CheckBox.ToolTip>
+                                    <ToolTip
+                                        Content="{Binding ToolTip}"
+                                        FontSize="14"
+                                        Foreground="White"
+                                        Placement="Top" />
+                                </CheckBox.ToolTip>
+                            </CheckBox>
+                            <TextBlock
+                                Grid.Column="1"
+                                Margin="0,5,0,5"
+                                VerticalAlignment="Center"
+                                FontSize="21"
+                                Foreground="White"
+                                Text="{Binding Title}"
+                                TextWrapping="Wrap" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <WrapPanel>
+                <Button
+                    Width="130"
+                    Height="40"
+                    Margin="0,10,0,0"
+                    HorizontalAlignment="Left"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Command="{Binding CleanCommand}"
+                    Content="Apply"
+                    FontSize="20"
+                    IsTabStop="False" />
+            </WrapPanel>
+            <ProgressBar
+                Width="130"
+                Margin="0,-2,0,0"
+                HorizontalAlignment="Left"
+                Background="Transparent"
+                Foreground="#22202f"
+                IsIndeterminate="{Binding IsProgress, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

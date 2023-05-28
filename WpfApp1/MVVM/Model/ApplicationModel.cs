@@ -38,7 +38,7 @@ namespace WpfApp1.MVVM.Model
             new AppsItem() { Action  = () => DeleteMovies(), Title="Movies & TV", Source=@"\Resources\Applications\Select\movies.png", IsChecked = false },
             new AppsItem() { Action  = () => DeleteScreen(), Title="Snipping Tool", Source=@"\Resources\Applications\Select\screen.png", IsChecked = false },
         };
-        public async void DeleteAppExecute()
+        public async Task DeleteAppExecute()
         {
             foreach (var item in AppsList)
             {

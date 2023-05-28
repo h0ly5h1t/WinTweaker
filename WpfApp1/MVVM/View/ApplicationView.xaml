@@ -38,7 +38,6 @@
                     <ComboBoxItem Content="Only for User" IsSelected="True" />
                 </ComboBox>
             </Grid>
-
             <WrapPanel
                 HorizontalAlignment="Left"
                 FlowDirection="LeftToRight"
@@ -47,7 +46,8 @@
                     x:Name="ShortcutItemsControl"
                     Background="Transparent"
                     IsTabStop="False"
-                    ItemsSource="{Binding AppsList, UpdateSourceTrigger=PropertyChanged}">
+                    ItemsSource="{Binding AppsList, UpdateSourceTrigger=PropertyChanged}"
+                    VirtualizingStackPanel.IsVirtualizing="False">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
@@ -83,20 +83,28 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </WrapPanel>
-
-            <Button
-                x:Name="DeleteButton"
+            <WrapPanel>
+                <Button
+                    x:Name="DeleteButton"
+                    Width="130"
+                    Height="40"
+                    Margin="0,20,0,0"
+                    HorizontalAlignment="Left"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Command="{Binding DeleteAppsCommand}"
+                    Content="Delete Apps"
+                    FontSize="20"
+                    Foreground="White"
+                    IsTabStop="False" />
+            </WrapPanel>
+            <ProgressBar
                 Width="130"
-                Height="40"
-                Margin="0,3,0,0"
+                Margin="0,-2,0,3"
                 HorizontalAlignment="Left"
-                HorizontalContentAlignment="Center"
-                VerticalContentAlignment="Center"
-                Command="{Binding DeleteAppsCommand}"
-                Content="Delete Apps"
-                FontSize="20"
-                Foreground="White"
-                IsTabStop="False" />
+                Background="Transparent"
+                Foreground="#22202f"
+                IsIndeterminate="{Binding IsProgress, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
     </ScrollViewer>
 </UserControl>

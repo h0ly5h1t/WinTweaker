@@ -32,7 +32,8 @@
                 x:Name="SpyItemsControl"
                 Background="Transparent"
                 IsTabStop="False"
-                ItemsSource="{Binding SpyList, UpdateSourceTrigger=PropertyChanged}">
+                ItemsSource="{Binding SpyList, UpdateSourceTrigger=PropertyChanged}"
+                VirtualizingStackPanel.IsVirtualizing="False">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,0,20,0">
@@ -85,7 +86,8 @@
                 x:Name="TelemetryItemsControl"
                 Background="Transparent"
                 IsTabStop="False"
-                ItemsSource="{Binding TelemetryList, UpdateSourceTrigger=PropertyChanged}">
+                ItemsSource="{Binding TelemetryList, UpdateSourceTrigger=PropertyChanged}"
+                VirtualizingStackPanel.IsVirtualizing="False">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,0,20,0">
@@ -139,7 +141,8 @@
                 x:Name="DataCollectionItemsControl"
                 Background="Transparent"
                 IsTabStop="False"
-                ItemsSource="{Binding DataCollectionList, UpdateSourceTrigger=PropertyChanged}">
+                ItemsSource="{Binding DataCollectionList, UpdateSourceTrigger=PropertyChanged}"
+                VirtualizingStackPanel.IsVirtualizing="False">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid Margin="0,0,20,0">

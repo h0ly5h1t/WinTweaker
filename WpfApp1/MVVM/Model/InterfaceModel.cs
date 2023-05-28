@@ -9,19 +9,24 @@ namespace WpfApp1.MVVM.Model
     class InterfaceModel : ObservableObject
     {
         public List<ShortcutItem> ShortcutList { get; set; } = new List<ShortcutItem>(){
-            new ShortcutItem() {Action  = () => AddBecomeOwnerDir_Async(), Title="Add the item \"Become the owner of the directory\" in the context menu", IsChecked = false},
-            new ShortcutItem() {Action  = () => AddCMDDesktop_Async(), Title="Add the item \"Command Promp (cmd)\" in the context menu", IsChecked = false },
-            new ShortcutItem() {Action  = () => AddEthernetAbility_Async(), Title="Add the item \"Allow/Deny Internet acces\" in the context menu", IsChecked = false },
-            new ShortcutItem() {Action  = () => AddCleanFold_Async(), Title="Add the item \"Delete Folder Content\" in the context menu", IsChecked = false },
-            new ShortcutItem() {Action  = () => AddGetHashCode_Async(), Title="Add the item \"Get Hash-Sum\" in the context menu for files", IsChecked = false },
+            new ShortcutItem() {Action  = () => AddBecomeOwnerDir_Async(), Title="Add the item \"Become the owner of the directory\" in the context menu", IsChecked = true},
+            new ShortcutItem() {Action  = () => AddCMDDesktop_Async(), Title="Add the item \"Command Promp (cmd)\" in the context menu", IsChecked = true },
+            new ShortcutItem() {Action  = () => AddEthernetAbility_Async(), Title="Add the item \"Allow/Deny Internet acces\" in the context menu", IsChecked = true },
+            new ShortcutItem() {Action  = () => AddCleanFold_Async(), Title="Add the item \"Delete Folder Content\" in the context menu", IsChecked = true },
+            new ShortcutItem() {Action  = () => AddGetHashCode_Async(), Title="Add the item \"Get Hash-Sum\" in the context menu for files", IsChecked = true },
         };
         public List<GUIItem> GUIList { get; set; } = new List<GUIItem>(){
-            new GUIItem() {Action  = () => AccelerateCursor_Async(), Title="Accelerate the frequency of cursor flickering (default - 530ms)", IsChecked = false },
-            new GUIItem() {Action  = () => AcceleratePanel_Async(), Title="Make app previews appear faster on the taskbar (default - 400ms)", IsChecked = false },
-            new GUIItem() {Action  = () => AddTray_Async(), Title="Add display of all app tray icons", IsChecked = false },
-            new GUIItem() {Action  = () => AddOffWindow_Async(), Title="Restore folder windows to their previous size when you log on", IsChecked = false },
-            new GUIItem() {Action  = () => AddEditScrollBar_Async(), Title="Make the scroll bar thinne", IsChecked = false },
-            new GUIItem() {Action  = () => RemoveShortcutsIco_Async(), Title="Remove arrows from desktop shortcuts", IsChecked = false },
+            new GUIItem() {Action  = () => AccelerateCursor_Async(), Title="Accelerate the frequency of cursor flickering", IsChecked = true },
+            new GUIItem() {Action  = () => AcceleratePanel_Async(), Title="Make app previews appear faster on the taskbar", IsChecked = true },            
+            new GUIItem() {Action  = () => AddEditScrollBar_Async(), Title="Make the scroll bar thinne", IsChecked = true },
+            new GUIItem() {Action  = () => AddTray_Async(), Title="Add display of all app tray icons", IsChecked = true },
+            new GUIItem() {Action  = () => AddOffWindow_Async(), Title="Restore folder windows to their previous size when you log on", IsChecked = true },
+            new GUIItem() {Action  = () => RemoveShortcutsIco_Async(), Title="Remove arrows from desktop shortcuts", IsChecked = true },
+            new GUIItem() {Action  = () => DisablingHistory(), Title="Disabling History for the Quick Access Toolbar", IsChecked = true },
+        };
+        public List<ThemeItem> ThemeList { get; set; } = new List<ThemeItem>(){
+            new ThemeItem() {Action  = () => SetDarkTheme(), Title="Set a dark theme for the system", IsChecked = true , GroupName="Theme" },
+            new ThemeItem() {Action  = () => SetLightTheme(), Title="Set a light theme for the system", IsChecked = false,GroupName="Theme" },
         };
 
         public async void AddItemsShortcutMenuExecute()
@@ -46,6 +51,18 @@ namespace WpfApp1.MVVM.Model
                 }
             }
         }
+        public async void AddThemeExecute()
+        {
+            foreach (var item in ThemeList)
+            {
+                if (item.IsChecked == true)
+                {
+                    await item.Action();
+                    item.IsChecked = false;
+                }
+            }
+        }
+
         #region Logic
         private async static Task AddBecomeOwnerDir_Async()
         {
@@ -227,10 +244,51 @@ namespace WpfApp1.MVVM.Model
                 using var key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Icons");
                 key.SetValue("29", "");
             });
-        } // todo добавить проблему, чтобы качал blanc.ico 
+        }
+
+
+        private async static Task SetDarkTheme()
+        {
+            await Task.Run(() =>
+            {
+                using var key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+                key.SetValue("AppsUseLightTheme", 0);
+
+                using var key1 = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+                key1.SetValue("AppsUseLightTheme", 0);
+            });
+        }
+        private async static Task SetLightTheme()
+        {
+            await Task.Run(() =>
+            {
+                using var key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+                key.SetValue("AppsUseLightTheme", 1);
+
+                using var key1 = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize");
+                key1.SetValue("AppsUseLightTheme", 1);
+            });
+        }
+        private async static Task DisablingHistory()
+        {
+            await Task.Run(() =>
+            {
+                using var key = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer");
+                key.SetValue("ShowFrequent", 0);
+                key.SetValue("ShowRecent", 0);
+
+                using var key1 = Registry.CurrentUser.CreateSubKey(@"Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced");
+                key1.SetValue("Start_TrackDocs", 0);
+                key1.SetValue("Start_TrackProgs", 0);
+            });
+        }
         #endregion
     }
 
     class ShortcutItem : SomeItem { }
     class GUIItem : SomeItem { }
+    class ThemeItem : SomeItem 
+    { 
+        public string GroupName { get; set; }
+    }
 }
